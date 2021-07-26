@@ -9,7 +9,6 @@
             <div class="container-fluid d-flex">
                 <a class="nav-link" aria-current="page" href="{{ route('login') }}">{{ __('Login') }}</a>
                 @endif
-
                 @if (Route::has('register'))
                     <a class="nav-link ml-3" href="{{ route('register') }}">{{ __('Register') }}</a>
             </div>

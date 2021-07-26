@@ -11,7 +11,8 @@
                 <i class="fa fa-check mx-2"></i>
                 <strong>{{ session()->get('message') }}</strong></div></div>
     @endif
-    <div class="row">
+    <button class="btn btn-light"><a href="/home">Go Back</a></button>
+    <div class="row mt-3">
         <div class="col-lg-12">
             <div class="card card-small mb-4">
                 <div class="card-header border-bottom bg-primary text-white">

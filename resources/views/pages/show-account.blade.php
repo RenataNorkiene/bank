@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @auth()
 @section('content')
-<ul class="list-group">
-    <li class="list-group-item bg-primary text-white"><h3 class="text-center">Transfers table</h3></li>
+<button class="btn btn-light mb-3"><a href="/home">Go Back</a></button>
+<br>
+@if(count($transfers) > 0)
+<ul class="list-group mt-3">
+    <li class="list-group-item bg-primary text-white"><h3>Transfers table</h3></li>
         <div class="table-responsive">
             <table class="table table-bordered bg-white text-center">
                 <thead>
@@ -18,7 +21,6 @@
                 </thead>
                 <tbody>
                 <tr>
-                    @if(count($transfers) > 0)
                         @foreach($transfers as $transfer)
                             <td>{{$transfer->created_at}}</td>
                             <td>{{$transfer->account_number_from}}</td>
@@ -31,8 +33,11 @@
                                 <td>+{{$transfer->amount}}</td>
                             @endif
                            <td>
-                               @if(time() - strtotime($transfer->created_at) < 120)
-                                   <button type="button" class="btn btn-danger">Cancel Transfer</button>
+                               @if(time() - strtotime($transfer->created_at) < 120 and $account_number == $transfer->account_number_from)
+                                   <form action="/account/{{$account_number}}/delete/{{$transfer->id}}" method="post" enctype="multipart/form-data">
+                                       @csrf
+                                       <button type="submit" class="btn btn-danger">Cancel Transfer</button>
+                                   </form>
                                @else
                                    Completed
                                @endif
@@ -41,7 +46,13 @@
                 @endforeach
                 </tbody>
                 @else
-                    Transactions not found
+                    <ul class="list-group">
+                        <li class="list-group-item bg-primary text-white"><h3>Account don't have transfers yet. Make it!</h3></li>
+                        <li class="list-group-item">
+                    <button type="button" class="btn btn-primary mr-2" onclick="window.location.href='/transfer-own'">Transfer between own accounts</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='/transfer-other'">Transfer to other user accounts</button>
+                        </li>
+                    </ul>
                 @endif
             </table>
             <div class="clearfix mt-5">

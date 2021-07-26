@@ -25,6 +25,7 @@ Route::get('/', function () {
 
 Route::get('/transfer-{type}', [\App\Http\Controllers\TransfersController::class, 'create_transfer']);
 Route::post('/transfer-{type}', [\App\Http\Controllers\TransfersController::class, 'store_transfer']);
+Route::post('/account/{account_number}/delete/{transfer_id}', [\App\Http\Controllers\TransfersController::class, 'delete_transfer']);
 Route::get('/account', function () {
     if (auth::check()) {
         return redirect()->route('home');

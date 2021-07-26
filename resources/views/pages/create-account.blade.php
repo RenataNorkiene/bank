@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @auth()
 @section('content')
-
-<div class="mb-3">
+<button class="btn btn-light"><a href="/home">Go Back</a></button>
+<div class="mb-3 mt-3">
     @include('_partials.errors')
     <ul class="list-group">
         <li class="list-group-item bg-primary text-white"><h3>Please enter name for new account</h3></li>
