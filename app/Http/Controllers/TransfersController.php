@@ -20,7 +20,7 @@ class TransfersController extends Controller
         if (auth::check()) {
             $accounts = Account::where('user_id', auth::id())->get();
             $data = array('accounts'=>$accounts, 'transfer_type'=>$type);
-            return view('pages.transfers')->with($data);
+            return view('pages.create-transfers')->with($data);
         } else {
             return redirect()->route('login');
         }

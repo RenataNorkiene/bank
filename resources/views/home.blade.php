@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @auth()
 @section('content')
-    <div class="card-header border-bottom text-center">
+    <div class="card-header border-bottom text-center bg-white">
         <h4 class="mb-0">{{ auth()->user()->name }}</h4>
     </div>
     @if(count($accounts) > 0)
@@ -21,10 +21,15 @@
                 <li class="list-group-item">Balance: {{$account->balance}}</li>
             </ul>
         @endforeach
-        <p>Total balance: {{$accounts->sum('balance')}}</p>
+        <p>Total balance: {{$balance}}</p>
+        <div class="clearfix mt-5">
+            {{$accounts->links('pagination::bootstrap-4')}}
+        </div>
     @else
         <p>No accounts found</p>
     @endif
     <button type="button" class="btn btn-primary mt-3 " onclick="window.location.href='/account/create'">Create new Account</button>
+
+
 @endsection
 @endauth

@@ -44,6 +44,9 @@
                     Transactions not found
                 @endif
             </table>
+            <div class="clearfix mt-5">
+                {{$transfers->links('pagination::bootstrap-4')}}
+            </div>
         </div>
 </ul>
 @endsection

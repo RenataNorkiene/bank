@@ -11,16 +11,11 @@
                 <i class="fa fa-check mx-2"></i>
                 <strong>{{ session()->get('message') }}</strong></div></div>
     @endif
-    <div class="page-header row no-gutters py-4">
-        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-            <h3 class="page-title">New Transaction</h3>
-        </div>
-    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="card card-small mb-4">
                 <div class="card-header border-bottom bg-primary text-white">
-                    <h6 class="m-0 ">Transaction details</h6>
+                    <h3 class="m-0 ">Transfer details</h3>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item p-3">

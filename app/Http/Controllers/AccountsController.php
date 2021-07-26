@@ -17,8 +17,10 @@ class AccountsController extends Controller
     }
     public function account_list(){
         if (auth::check()) {
-            $accounts = Account::where('user_id', auth::id())->get();
-            return view('/home')->with('accounts', $accounts);
+            $accounts = Account::where('user_id', auth::id())->paginate(4);
+            $balance = Account::where('user_id', auth::id())->sum('balance');
+            $data = array('accounts' => $accounts, 'balance' => $balance);
+            return view('/home')->with($data);
         } else {
             return redirect()->route('login');
         }
