@@ -2,16 +2,18 @@
 @auth()
 @section('content')
 
-    <div class="mb-3">
-            @include('_partials.errors')
+<div class="mb-3">
+    @include('_partials.errors')
+    <ul class="list-group">
+        <li class="list-group-item bg-primary text-white"><h3>Please enter name for new account</h3></li>
+        <li class="list-group-item">
             <form action="/account/create" method="post" enctype="multipart/form-data">
                 @csrf
-                <label for="account_name" class="form-label"><h3>Please enter name for new account</h3></label>
-                <input type="text" class="form-control" id="account_name" name="account_name" placeholder="account name">
-    </div>
+                <input type="text" class="form-control mt-2 mb-3" id="account_name" name="account_name" placeholder="account name">
                 <button type="submit" name="button" class="btn btn-primary">Create an Account</button>
             </form>
-        </div>
-    </div>
+        </li>
+    </ul>
+</div>
 @endsection
 @endauth
