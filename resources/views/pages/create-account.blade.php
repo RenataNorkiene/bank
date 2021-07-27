@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @auth()
 @section('content')
-<button class="btn btn-light"><a href="/home">Go Back</a></button>
+<button type="submit" class="btn btn-light" onclick="window.location.href='/home'">Go back</button>
 <div class="mb-3 mt-3">
     @include('_partials.errors')
     <ul class="list-group">

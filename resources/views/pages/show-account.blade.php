@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @auth()
 @section('content')
-<button class="btn btn-light mb-3"><a href="/home">Go Back</a></button>
+<button type="submit" class="btn btn-light" onclick="window.location.href='/home'">Go back</button>
 <br>
 @if(count($transfers) > 0)
 <ul class="list-group mt-3">
@@ -46,11 +46,11 @@
                 @endforeach
                 </tbody>
                 @else
-                    <ul class="list-group">
-                        <li class="list-group-item bg-primary text-white"><h3>Account don't have transfers yet. Make it!</h3></li>
+                    <ul class="list-group mt-3">
+                        <li class="list-group-item text-primary"><h3>Account don't have transfers yet. Make it!</h3></li>
                         <li class="list-group-item">
-                    <button type="button" class="btn btn-primary mr-2" onclick="window.location.href='/transfer-own'">Transfer between own accounts</button>
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='/transfer-other'">Transfer to other user accounts</button>
+                    <button type="submit" class="btn btn-primary mr-2" onclick="window.location.href='/transfer-own'">Transfer between own accounts</button>
+                    <button type="submit" class="btn btn-primary" onclick="window.location.href='/transfer-other'">Transfer to other user accounts</button>
                         </li>
                     </ul>
                 @endif
